@@ -1,0 +1,26 @@
+{
+  "level1": {
+    "level1": {
+      "mac book pro": 95
+    },
+    "level2": {},
+    "level3": {}
+  },
+  "level2": {
+    "level1": {},
+    "level2": {},
+    "level3": {
+      "ipad": 20
+    }
+  },
+  "level3": {
+    "level1": {},
+    "level2": {},
+    "level3": {}
+  },
+  "level4": {
+    "level1": {},
+    "level2": {},
+    "level3": {}
+  }
+}
