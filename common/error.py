@@ -1,7 +1,8 @@
 # coding:utf-8
 # @Create time: 2021/3/29 4:40 下午
 # @Author: KongJingchun
-# @remark:
+# @remark: 错误类
+
 # 文件路径错误
 class NotPathError(Exception):
     def __init__(self, message):
@@ -36,5 +37,20 @@ class LevelError(Exception):
 
 
 class NegativeNumberError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+
+class NotUserError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+
+class NotAdminError(Exception):
+    def __init__(self, message):
+        self.message = message
+
+
+class UserActiveError(Exception):
     def __init__(self, message):
         self.message = message

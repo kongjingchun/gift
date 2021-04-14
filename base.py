@@ -15,9 +15,12 @@ class Base(object):
     def __init__(self, user_json, gift_json):
         self.user_json = user_json
         self.gift_json = gift_json
+        # print(user_json)
+        # print(gift_json)
         check_json(self.user_json)
         check_json(self.gift_json)
         self.__init_gift()
+        # print('Base初始化')
 
     # 读取user.json文件获取用户信息
     def __read_users(self):
