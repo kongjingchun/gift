@@ -4,7 +4,7 @@
 # @remark:
 from base import Base
 import os
-from common.error import NotUserError, UserActiveError, NotAdminError
+from common.error import NotUserError, UserActiveError, NotAdminError, RoleError
 
 
 class Admin(Base):
@@ -19,12 +19,14 @@ class Admin(Base):
         current_user = users.get(self.username)
         if current_user is None:
             raise NotUserError('not user %s' % self.username)
+        self.username = current_user.get('username')
         self.active = current_user.get('active')
+        self.role = current_user.get('role')
         if self.active is False:
             raise UserActiveError('%s active is False' % self.username)
+        if self.role != 'admin':
+            raise RoleError('User role not admin')
         self.user = current_user
-        self.username = current_user.get('username')
-        self.role = current_user.get('role')
 
     # 添加用户
     def add_user(self, username, role):
@@ -49,5 +51,5 @@ if __name__ == '__main__':
     user_json_path = os.path.join(os.getcwd(), 'storage', 'user.json')
     gift_json_path = os.path.join(os.getcwd(), 'storage', 'gift.json')
     admin = Admin('kjc', user_json_path, gift_json_path)
-    print(admin.username, admin.role)
+    # print(admin.username, admin.role)
     admin.update_user_role(username='lxq', role='normal')
