@@ -1,1 +1,26 @@
-{"kjc": {"username": "kjc", "role": "admin", "active": true, "create_time": "2021-04-01 18:42:17", "update_time": "2021-04-01 18:42:17", "gifts": []}, "wy": {"username": "wy", "role": "normal", "active": true, "create_time": "2021-04-01 18:42:17", "update_time": "2021-04-01 18:42:17", "gifts": []}, "lxq": {"username": "lxq", "role": "normal", "active": true, "create_time": "2021-04-07 17:00:49", "update_time": "2021-04-15 18:38:47", "gifts": ["\u7cd6\u8c46", "mac book pro", "mac book pro", "ipad3", "\u7cd6\u8c46"]}}
+{
+  "kjc": {
+    "username": "kjc",
+    "role": "admin",
+    "active": true,
+    "create_time": "2021-04-01 18:42:17",
+    "update_time": "2021-04-01 18:42:17",
+    "gifts": []
+  },
+  "wy": {
+    "username": "wy",
+    "role": "normal",
+    "active": true,
+    "create_time": "2021-04-01 18:42:17",
+    "update_time": "2021-04-01 18:42:17",
+    "gifts": []
+  },
+  "lxq": {
+    "username": "lxq",
+    "role": "normal",
+    "active": true,
+    "create_time": "2021-04-07 17:00:49",
+    "update_time": "2021-04-15 18:38:47",
+    "gifts": []
+  }
+}

@@ -1,1 +1,30 @@
-{"level1": {"level1": {"mac book pro": 0}, "level2": {}, "level3": {}}, "level2": {"level1": {}, "level2": {"\u7cd6\u8c46": 97}, "level3": {"ipad1": 10, "ipad2": 20, "ipad3": 29}}, "level3": {"level1": {}, "level2": {}, "level3": {}}, "level4": {"level1": {}, "level2": {}, "level3": {}}}
+{
+  "level1": {
+    "level1": {
+      "mac book pro": 100
+    },
+    "level2": {},
+    "level3": {}
+  },
+  "level2": {
+    "level1": {},
+    "level2": {
+      "\u7cd6\u8c46": 100
+    },
+    "level3": {
+      "ipad1": 10,
+      "ipad2": 20,
+      "ipad3": 30
+    }
+  },
+  "level3": {
+    "level1": {},
+    "level2": {},
+    "level3": {}
+  },
+  "level4": {
+    "level1": {},
+    "level2": {},
+    "level3": {}
+  }
+}
