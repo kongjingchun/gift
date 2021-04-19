@@ -8,7 +8,7 @@ import os
 import json
 from common.consts import ROLES, FIRSTLEVELS, SECONDLEVELS
 from common.utils import check_json, get_strtime
-from common.error import UserExistsError, RoleError, LevelError, NegativeNumberError
+from common.error import UserExistsError, RoleError, LevelError, NegativeNumberError, CountError
 
 
 class Base(object):
@@ -36,8 +36,8 @@ class Base(object):
             raise ValueError('missing role')
         user['active'] = True
         now_time = get_strtime()
-        user['createtime'] = now_time
-        user['updatetime'] = now_time
+        user['create_time'] = now_time
+        user['update_time'] = now_time
         user['gifts'] = []
 
         users = self.__read_users()
@@ -59,7 +59,7 @@ class Base(object):
         if role not in ROLES:
             raise RoleError('not use role %s' % role)
         user['role'] = role
-        user['updatetime'] = get_strtime()
+        user['update_time'] = get_strtime()
         users[username] = user
         self.__save(self.user_json, users)
         return True
@@ -71,7 +71,7 @@ class Base(object):
         if not user:
             return False
         user['active'] = not user['active']
-        user['updatetime'] = get_strtime()
+        user['update_time'] = get_strtime()
         users[username] = user
         self.__save(self.user_json, users)
         return True
@@ -125,7 +125,7 @@ class Base(object):
         self.__save(self.gift_json, data)
 
     # 添加奖品
-    def __write_gift(self, first_level, second_level, gift_name, gift_count):
+    def __add_gift(self, first_level, second_level, gift_name, gift_count):
         if first_level not in FIRSTLEVELS:
             raise LevelError('%s not in FIRSTLEVELS ' % first_level)
         if second_level not in SECONDLEVELS:
@@ -148,7 +148,7 @@ class Base(object):
         self.__save(self.gift_json, gifts)
 
     # 删除奖品
-    def delete_gift(self, first_level, second_level, gift_name):
+    def __delete_gift(self, first_level, second_level, gift_name):
         data = self.__check_level_and_giftname(first_level, second_level, gift_name)
         if not data:
             return False
@@ -159,15 +159,21 @@ class Base(object):
         self.__save(self.gift_json, gifts)
         return del_gift
 
-    # 减少奖品数量
-    def reduce_gift(self, first_level, second_level, gift_name, gift_count):
+    # 修改奖品数量
+    def __update_gift(self, first_level, second_level, gift_name, gift_count=1, is_admin=False):
+        assert isinstance(gift_count, int), 'gift_count not int'
         data = self.__check_level_and_giftname(first_level, second_level, gift_name)
         if not data:
             return False
         gifts, first_gift_pool, second_gift_pool = data[0], data[1], data[2]
-        if second_gift_pool[gift_name] - gift_count < 0:
-            raise NegativeNumberError('It is negative after calculation')
-        second_gift_pool[gift_name] -= gift_count
+        if is_admin:
+            if gift_count <= 0:
+                raise CountError('The number of gifts is less than 0')
+            second_gift_pool[gift_name] = gift_count
+        else:
+            if second_gift_pool[gift_name] - gift_count < 0:
+                raise NegativeNumberError('It is negative after calculation')
+            second_gift_pool[gift_name] -= gift_count
         first_gift_pool[second_level] = second_gift_pool
         gifts[first_level] = first_gift_pool
         self.__save(self.gift_json, gifts)

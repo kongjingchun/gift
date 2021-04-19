@@ -3,24 +3,24 @@
     "username": "kjc",
     "role": "admin",
     "active": true,
-    "createtime": "2021-04-01 18:42:17",
-    "updatetime": "2021-04-01 18:42:17",
+    "create_time": "2021-04-01 18:42:17",
+    "update_time": "2021-04-01 18:42:17",
     "gifts": []
   },
   "wy": {
-    "username": "kjc",
+    "username": "wy",
     "role": "normal",
     "active": true,
-    "createtime": "2021-04-01 18:42:17",
-    "updatetime": "2021-04-01 18:42:17",
+    "create_time": "2021-04-01 18:42:17",
+    "update_time": "2021-04-01 18:42:17",
     "gifts": []
   },
   "lxq": {
     "username": "lxq",
     "role": "normal",
     "active": true,
-    "createtime": "2021-04-07 17:00:49",
-    "updatetime": "2021-04-07 17:04:11",
+    "create_time": "2021-04-07 17:00:49",
+    "update_time": "2021-04-15 18:38:47",
     "gifts": []
   }
 }

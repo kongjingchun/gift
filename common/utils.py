@@ -20,6 +20,13 @@ def check_json(path):
         raise NotFileError('not file: %s' % path)
 
 
+# 将时间转换成字符串
+def timestamp_to_string(timestamp):
+    time_obj = time.localtime(timestamp)
+    tim_str = time.strftime('%Y-%m-%d %H:%M:%S', time_obj)
+    return tim_str
+
+
 # 获取时间字符串
 def get_strtime():
     return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
