@@ -45,6 +45,7 @@ class User(Base):
 
     # 抽取奖品
     def choice_gift(self):
+        self.get_user()
         level_one_number = random.choice(self.gift_random)
         if 1 <= level_one_number <= 50:
             first_level = 'level1'
@@ -82,7 +83,7 @@ class User(Base):
         self.user['gifts'].append(gift_name)
         self.users[self.username] = self.user
         self._Base__save(path=self.user_json, data=self.users)
-        print('恭喜您，获得奖品%s' % gift_name)
+        print('恭喜您，获得奖品:%s' % gift_name)
 
 
 if __name__ == '__main__':
