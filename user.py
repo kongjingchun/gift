@@ -79,7 +79,9 @@ class User(Base):
         if second_gifts[gift_name] <= 0:
             print('很遗憾，您没有中奖')
             return
-        self._Base__update_gift(first_level=first_level, second_level=second_level, gift_name=gift_name)
+        save_result = self._Base__update_gift(first_level=first_level, second_level=second_level, gift_name=gift_name)
+        if save_result == False:
+            raise Exception('减少奖品数量失败！！')
         self.user['gifts'].append(gift_name)
         self.users[self.username] = self.user
         self._Base__save(path=self.user_json, data=self.users)
