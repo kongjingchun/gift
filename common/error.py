@@ -20,10 +20,12 @@ class NotFileError(Exception):
     def __init__(self, message):
         self.message = message
 
+
 # 用户不存在错误
 class UserExistsError(Exception):
     def __init__(self, message):
         self.message = message
+
 
 # 角色错误
 class RoleError(Exception):
@@ -50,11 +52,14 @@ class NotAdminError(Exception):
     def __init__(self, message):
         self.message = message
 
+
 # 用户权限错误
 class UserActiveError(Exception):
     def __init__(self, message):
         self.message = message
 
+
+# 数字错误
 class CountError(Exception):
     def __init__(self, message):
         self.message = message

@@ -73,4 +73,4 @@ if __name__ == '__main__':
     admin = Admin('kjc', user_json_path, gift_json_path)
     # print(admin.username, admin.role)
     # admin.update_user_role(username='lxq', role='normal')
-    admin.update_gift(first_level='level2', second_level='level2', gift_name='糖豆', gift_count=100)
+    admin.update_gift(first_level='level2', second_level='level3', gift_name='ipad1', gift_count=100)

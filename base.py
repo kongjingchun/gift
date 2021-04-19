@@ -177,6 +177,7 @@ class Base(object):
         first_gift_pool[second_level] = second_gift_pool
         gifts[first_level] = first_gift_pool
         self.__save(self.gift_json, gifts)
+        return True
 
     # 检查登记和奖品名称是否正确
     def __check_level_and_giftname(self, first_level, second_level, gift_name):
