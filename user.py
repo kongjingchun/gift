@@ -43,6 +43,7 @@ class User(Base):
                     gift_lists.append(name)
         return gift_lists
 
+    # 抽取奖品
     def choice_gift(self):
         level_one_number = random.choice(self.gift_random)
         if 1 <= level_one_number <= 50:
@@ -74,14 +75,14 @@ class User(Base):
         for k, _ in second_gifts.items():
             gift_names.append(k)
         gift_name = random.choice(gift_names)
-        print(gift_name)
         if second_gifts[gift_name] <= 0:
             print('很遗憾，您没有中奖')
             return
         self._Base__update_gift(first_level=first_level, second_level=second_level, gift_name=gift_name)
-        self.user[gifts].append(gift_name)
-        self.users[self.user] = self.user
-        self._Base__save(path = self.user_json, data = self.users)
+        self.user['gifts'].append(gift_name)
+        self.users[self.username] = self.user
+        self._Base__save(path=self.user_json, data=self.users)
+        print('恭喜您，获得奖品%s' % gift_name)
 
 
 if __name__ == '__main__':
